@@ -14,10 +14,17 @@
         @else
             <ul>
                 @foreach($messages as $message)
-                    <li>{{ $message->text }}</li>
+                    <li>{{ $message->text}}</li>
+                    @if ($message->img === NULL)
+                    <p>Sin Imagen</p>
+                    @else
+                    <li><img src="{{$message->img}}" alt=""></li>
+                    @endif
                 @endforeach
             </ul>
         @endif
+        <a href="{{ route('messages.borrar')}}">Editar</a>
+
     </div>
 </body>
 </html>
